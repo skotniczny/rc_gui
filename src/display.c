@@ -202,7 +202,7 @@ void load_display_tab (GtkBuilder *builder)
 
     /* Blanking switch */
     CONFIG_SWITCH (blank_sw, "sw_blank", orig_blank, GET_BLANK);
-    HANDLE_SWITCH (blank_sw, SET_BLANK);
+    HANDLE_SWITCH (blank_sw, SET_BLANK, GET_BLANK);
     if (!vsystem (XSCR_INSTALLED))
     {
         gtk_widget_set_sensitive (GTK_WIDGET (blank_sw), FALSE);
@@ -212,8 +212,8 @@ void load_display_tab (GtkBuilder *builder)
     /* Overscan switches */
     CONFIG_SWITCH (overscan_sw, "sw_os1", orig_overscan, GET_OVERSCAN);
     CONFIG_SWITCH (overscan2_sw, "sw_os2", orig_overscan2, GET_OVERSCAN2);
-    HANDLE_SWITCH (overscan_sw, SET_OVERSCAN);
-    HANDLE_SWITCH (overscan2_sw, SET_OVERSCAN2);
+    HANDLE_SWITCH (overscan_sw, SET_OVERSCAN, GET_OVERSCAN);
+    HANDLE_SWITCH (overscan2_sw, SET_OVERSCAN2, GET_OVERSCAN2);
 
     if (wm == WM_OPENBOX)
     {

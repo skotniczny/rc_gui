@@ -335,7 +335,7 @@ void load_performance_tab (GtkBuilder *builder)
     {
         /* USB current limit switch */
         CONFIG_SWITCH (usb_sw, "sw_usb", orig_usbi, GET_USBI);
-        HANDLE_SWITCH (usb_sw, SET_USBI);
+        HANDLE_SWITCH (usb_sw, SET_USBI, GET_USBI);
         if (vsystem (IS_PI5))
         {
             gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "hbox37")));

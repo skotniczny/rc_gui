@@ -190,11 +190,18 @@ char *get_quoted_param (char *path, char *fname, char *toseek)
 
 #ifdef REALTIME
 
+GtkWidget *cswitch;
+
 static gboolean process_switch (gpointer data)
 {
-    char *cmdline = (char *) data;
-    vsystem (cmdline);
-    g_free (cmdline);
+    char *setcmd = (char *) data;
+    char *getcmd = strchr (setcmd, ';');
+    *getcmd++ = 0;
+    vsystem (setcmd);
+    g_free (setcmd);
+    g_signal_handlers_block_matched (cswitch, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_switch, NULL);
+    gtk_switch_set_active (GTK_SWITCH (cswitch), !get_status (getcmd));
+    g_signal_handlers_unblock_matched (cswitch, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_switch, NULL);
     clear_watch_cursor ();
     return FALSE;
 }
@@ -202,6 +209,7 @@ static gboolean process_switch (gpointer data)
 void on_switch (GtkSwitch *btn, gpointer, const char *cmd)
 {
     char *cmdline;
+    cswitch = GTK_WIDGET (btn);
     set_watch_cursor ();
     cmdline = g_strdup_printf (cmd, (1 - gtk_switch_get_active (btn)));
     g_idle_add (process_switch, cmdline);

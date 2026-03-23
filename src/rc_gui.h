@@ -52,7 +52,7 @@ extern const char *dgetfixt (const char *domain, const char *msgctxid);
                                         gtk_switch_set_active (GTK_SWITCH (wid), !(var = get_status (cmd)));
 
 #ifdef REALTIME
-#define HANDLE_SWITCH(wid,setcmd)       g_signal_connect (wid, "notify::active", G_CALLBACK (on_switch), setcmd);
+#define HANDLE_SWITCH(wid,setcmd,getcmd)  g_signal_connect (wid, "notify::active", G_CALLBACK (on_switch), g_strdup_printf ("%s;%s",setcmd, getcmd));
 #define HANDLE_CONTROL(wid,cmd,cb)      g_signal_connect (wid, cmd, G_CALLBACK(cb), NULL);
 #else
 #define HANDLE_SWITCH(wid,setcmd)

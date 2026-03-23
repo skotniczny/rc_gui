@@ -346,7 +346,7 @@ void load_system_tab (GtkBuilder *builder)
 
     /* Splash screen switch */
     CONFIG_SWITCH (splash_sw, "sw_splash", orig_splash, GET_SPLASH);
-    HANDLE_SWITCH (splash_sw, SET_SPLASH);
+    HANDLE_SWITCH (splash_sw, SET_SPLASH, GET_SPLASH);
     if (!vsystem (IS_PI))
     {
         if (!get_status ("grep -q boot=live /proc/cmdline ; echo $?"))
@@ -401,13 +401,13 @@ void load_system_tab (GtkBuilder *builder)
         {
             gtk_switch_set_active (GTK_SWITCH (led_actpwr_sw), !(orig_leds));
             gtk_widget_show (GTK_WIDGET (gtk_builder_get_object (builder, "hbox17")));
-            HANDLE_SWITCH (led_actpwr_sw, SET_LEDS);
+            HANDLE_SWITCH (led_actpwr_sw, SET_LEDS, GET_LEDS);
         }
     }
 
     /* Passwordless sudo switch */
     CONFIG_SWITCH (psudo_sw, "sw_psudo", orig_psudo, GET_PSUDO);
-    HANDLE_SWITCH (psudo_sw, SET_PSUDO);
+    HANDLE_SWITCH (psudo_sw, SET_PSUDO, GET_PSUDO);
 }
 
 /* End of file */

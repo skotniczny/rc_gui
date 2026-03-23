@@ -144,11 +144,11 @@ void load_interfacing_tab (GtkBuilder *builder)
 {
     /* SSH switch */
     CONFIG_SWITCH (ssh_sw, "sw_ssh", orig_ssh, GET_SSH);
-    HANDLE_SWITCH (ssh_sw, SET_SSH);
+    HANDLE_SWITCH (ssh_sw, SET_SSH, GET_SSH);
 
     /* VNC switch */
     CONFIG_SWITCH (vnc_sw, "sw_vnc", orig_vnc, GET_VNC);
-    HANDLE_SWITCH (vnc_sw, SET_VNC);
+    HANDLE_SWITCH (vnc_sw, SET_VNC, GET_VNC);
     if ((wm == WM_OPENBOX && vsystem (RVNC_INSTALLED)) || (wm != WM_OPENBOX && vsystem (WVNC_INSTALLED)))
     {
         gtk_widget_set_sensitive (GTK_WIDGET (vnc_sw), FALSE);
@@ -159,25 +159,25 @@ void load_interfacing_tab (GtkBuilder *builder)
     {
         /* SPI switch */
         CONFIG_SWITCH (spi_sw, "sw_spi", orig_spi, GET_SPI);
-        HANDLE_SWITCH (spi_sw, SET_SPI);
+        HANDLE_SWITCH (spi_sw, SET_SPI, GET_SPI);
 
         /* I2C switch */
         CONFIG_SWITCH (i2c_sw, "sw_i2c", orig_i2c, GET_I2C);
-        HANDLE_SWITCH (i2c_sw, SET_I2C);
+        HANDLE_SWITCH (i2c_sw, SET_I2C, GET_I2C);
 
         /* 1-wire interface switch */
         CONFIG_SWITCH (onewire_sw, "sw_one", orig_onewire, GET_1WIRE);
-        HANDLE_SWITCH (onewire_sw, SET_1WIRE);
+        HANDLE_SWITCH (onewire_sw, SET_1WIRE, GET_1WIRE);
 
         /* Serial console switch */
         CONFIG_SWITCH (scons_sw, "sw_serc", orig_scons, GET_SERIALCON);
-        HANDLE_SWITCH (scons_sw, SET_SERIALCON);
+        HANDLE_SWITCH (scons_sw, SET_SERIALCON, GET_SERIALCON);
 
         /* Serial hardware switch */
         CONFIG_SWITCH (serial_sw, "sw_ser", orig_serial, GET_SERIALHW);
         if (!vsystem (IS_PI5))
         {
-            HANDLE_SWITCH (serial_sw, SET_SERIALHW);
+            HANDLE_SWITCH (serial_sw, SET_SERIALHW, GET_SERIALHW);
         }
         else
         {
