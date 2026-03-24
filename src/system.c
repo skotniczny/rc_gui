@@ -180,10 +180,11 @@ static void on_change_hostname (GtkButton* btn, gpointer ptr)
             if (res)
             {
                 vsystem (SET_HOSTNAME, new_hn);
-                gtk_widget_destroy (dlg);
                 g_free (orig_hn);
                 orig_hn = get_string (GET_HOSTNAME);
-                if (!g_strcmp0 (orig_hn, new_hn))
+                res = g_strcmp0 (orig_hn, new_hn);
+                gtk_widget_destroy (dlg);
+                if (!res)
                 {
                     info (_("The hostname has been changed successfully and will take effect on the next reboot."));
                     needs_reboot = TRUE;
