@@ -63,11 +63,14 @@ static char *orig_sop;
 /*----------------------------------------------------------------------------*/
 
 static int num_screens (void);
+static void set_cb_text (GObject *cb, const char *str);
 #ifdef REALTIME
 static void on_squeekboard_set (GtkComboBox *cb, gpointer ptr);
 static void on_squeek_output_set (GtkComboBoxText *cb, gpointer ptr);
 static void on_vnc_res_set (GtkComboBoxText *cb, gpointer ptr);
-static gboolean process_cb (gpointer data);
+static gboolean process_squeek_cb (gpointer data);
+static gboolean process_squeekop_cb (gpointer data);
+static gboolean process_vnc_cb (gpointer data);
 #endif
 
 /*----------------------------------------------------------------------------*/
@@ -86,6 +89,25 @@ static int num_screens (void)
         return get_status ("xrandr -q | grep -cw connected");
 }
 
+static void set_cb_text (GObject *cb, const char *str)
+{
+    char *cbtext;
+    int index = 0;
+
+    while (index < 20)
+    {
+        gtk_combo_box_set_active (GTK_COMBO_BOX (cb), index);
+        cbtext = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT (cb));
+        if (!g_strcmp0 (cbtext, str))
+        {
+            g_free (cbtext);
+            return;
+        }
+        g_free (cbtext);
+        index++;
+    }
+}
+
 /*----------------------------------------------------------------------------*/
 /* Real-time handlers                                                         */
 /*----------------------------------------------------------------------------*/
@@ -97,7 +119,22 @@ static void on_squeekboard_set (GtkComboBox *cb, gpointer ptr)
     char *cmd;
     set_watch_cursor ();
     cmd = g_strdup_printf (SET_SQUEEK, gtk_combo_box_get_active (cb) + 1);
-    g_idle_add (process_cb, cmd);
+    g_idle_add (process_squeek_cb, cmd);
+}
+
+static gboolean process_squeek_cb (gpointer data)
+{
+    char *cmd = (char *) data;
+    vsystem (cmd);
+    g_free (cmd);
+
+    int val = get_status (GET_SQUEEK);
+    g_signal_handlers_block_matched (squeek_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_squeekboard_set, NULL);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (squeek_cb), val);
+    g_signal_handlers_unblock_matched (squeek_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_squeekboard_set, NULL);
+
+    clear_watch_cursor ();
+    return FALSE;
 }
 
 static void on_squeek_output_set (GtkComboBoxText *cb, gpointer ptr)
@@ -107,7 +144,23 @@ static void on_squeek_output_set (GtkComboBoxText *cb, gpointer ptr)
     op = gtk_combo_box_text_get_active_text (cb);
     cmd = g_strdup_printf (SET_SQUEEKOUT, op);
     g_free (op);
-    g_idle_add (process_cb, cmd);
+    g_idle_add (process_squeekop_cb, cmd);
+}
+
+static gboolean process_squeekop_cb (gpointer data)
+{
+    char *cmd = (char *) data;
+    vsystem (cmd);
+    g_free (cmd);
+
+    cmd = get_string (GET_SQUEEKOUT);
+    g_signal_handlers_block_matched (squeekop_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_squeek_output_set, NULL);
+    set_cb_text (squeekop_cb, cmd);
+    g_signal_handlers_unblock_matched (squeekop_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_squeek_output_set, NULL);
+    g_free (cmd);
+
+    clear_watch_cursor ();
+    return FALSE;
 }
 
 static void on_vnc_res_set (GtkComboBoxText *cb, gpointer ptr)
@@ -117,14 +170,21 @@ static void on_vnc_res_set (GtkComboBoxText *cb, gpointer ptr)
     vres = gtk_combo_box_text_get_active_text (cb);
     cmd = g_strdup_printf (SET_VNC_RES, vres);
     g_free (vres);
-    g_idle_add (process_cb, cmd);
+    g_idle_add (process_vnc_cb, cmd);
 }
 
-static gboolean process_cb (gpointer data)
+static gboolean process_vnc_cb (gpointer data)
 {
     char *cmd = (char *) data;
     vsystem (cmd);
     g_free (cmd);
+
+    cmd = get_string (GET_VNC_RES);
+    g_signal_handlers_block_matched (vnc_res_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_vnc_res_set, NULL);
+    set_cb_text (vnc_res_cb, cmd);
+    g_signal_handlers_unblock_matched (vnc_res_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_vnc_res_set, NULL);
+    g_free (cmd);
+
     clear_watch_cursor ();
     return FALSE;
 }
@@ -232,13 +292,13 @@ void load_display_tab (GtkBuilder *builder)
         gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "hbox53")));
 
         /* Squeekboard enable */
-        squeek_cb = gtk_builder_get_object (builder, "cb_squeek");
+        squeek_cb = gtk_builder_get_object (builder, "combo_squeek");
         orig_squeek = get_status (GET_SQUEEK);
         gtk_combo_box_set_active (GTK_COMBO_BOX (squeek_cb), orig_squeek);
         HANDLE_CONTROL (squeek_cb, "changed", on_squeekboard_set);
 
         /* Squeekboard output */
-        squeekop_cb = gtk_builder_get_object (builder, "cb_squeekout");
+        squeekop_cb = gtk_builder_get_object (builder, "combo_squeekout");
         orig_sop = get_string (GET_SQUEEKOUT);
         fp = popen ("wlr-randr", "r");
         if (fp)
