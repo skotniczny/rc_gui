@@ -226,6 +226,18 @@ static gboolean process_fan (gpointer data)
         vsystem (SET_FAN, 0, fan_gpio, fan_temp);
     }
 #ifdef REALTIME
+
+    g_signal_handlers_block_matched (fan_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_toggle, NULL);
+    //g_signal_handlers_block_matched (fan_gpio_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    //g_signal_handlers_block_matched (fan_temp_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    gtk_switch_set_active (GTK_SWITCH (fan_sw), !get_status (GET_FAN));
+    //gtk_spin_button_set_value (GTK_SPIN_BUTTON (fan_gpio_sb), get_status (GET_FAN_GPIO));
+    //gtk_spin_button_set_value (GTK_SPIN_BUTTON (fan_temp_sb), get_status (GET_FAN_TEMP));
+    g_signal_handlers_unblock_matched (fan_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_toggle, NULL);
+    //g_signal_handlers_unblock_matched (fan_gpio_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    //g_signal_handlers_unblock_matched (fan_temp_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+
+    fan_update ();
     clear_watch_cursor ();
     return FALSE;
 #endif
@@ -251,10 +263,10 @@ static void fan_update (void)
 
 static void on_fan_toggle (GtkSwitch *btn, gpointer, gpointer)
 {
-    fan_update ();
-
 #ifdef REALTIME
     fan_config ();
+#else
+    fan_update ();
 #endif
 }
 
