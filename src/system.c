@@ -280,10 +280,17 @@ static void on_browser_toggle (GtkButton *btn, gpointer ptr)
 
 static gboolean process_browser (gpointer data)
 {
+    char *browser;
     if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (chromium_rb)))
         vsystem (SET_BROWSER, "chromium");
     else
         vsystem (SET_BROWSER, ffver == 1 ? "firefox" : "firefox-esr");
+    browser = get_string (GET_BROWSER);
+    g_signal_handlers_block_matched (chromium_rb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_browser_toggle, NULL);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (firefox_rb), !strncmp (browser, "firefox", 7));
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (chromium_rb), !strncmp (browser, "chromium", 8));
+    g_signal_handlers_unblock_matched (chromium_rb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_browser_toggle, NULL);
+    g_free (browser);
     clear_watch_cursor ();
     return FALSE;
 }
