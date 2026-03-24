@@ -2173,13 +2173,21 @@
       <widget name="button_tz"/>
       <widget name="button_wifi"/>
       <widget name="button_kb"/>
+      <widget name="button_ofs"/>
+    </widgets>
+  </object>
+  <object class="GtkSizeGroup">
+    <widgets>
       <widget name="combo_res"/>
       <widget name="combo_oc"/>
-      <widget name="button_ofs"/>
-      <widget name="sb_fan_temp"/>
-      <widget name="sb_fan_gpio"/>
       <widget name="cb_squeek"/>
       <widget name="cb_squeekout"/>
+    </widgets>
+  </object>
+  <object class="GtkSizeGroup">
+    <widgets>
+      <widget name="sb_fan_temp"/>
+      <widget name="sb_fan_gpio"/>
     </widgets>
   </object>
   <object class="GtkWindow" id="modal">
