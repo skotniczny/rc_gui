@@ -768,13 +768,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_alogin_cons">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Automatically log in the current user at the console</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label14"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_alogin_cons">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Automatically log in the current user at the console</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label14"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -808,13 +820,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_alogin_desk">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Automatically log in the current user to the desktop</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label14"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_alogin_desk">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Automatically log in the current user to the desktop</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label14"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -848,13 +872,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_splash">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Show graphical splash screen at boot</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label16"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_splash">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Show graphical splash screen at boot</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label16"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -888,13 +924,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_led_actpwr">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Flash the power LED on disk activity</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label17"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_led_actpwr">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Flash the power LED on disk activity</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label17"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1004,17 +1052,29 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_psudo">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Prompt for the user password before admin ("sudo") operations</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label19"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_psudo">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Prompt for the user password before admin ("sudo") operations</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label19"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
-                        <property name="fill">True</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -1063,13 +1123,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_os1">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable overscan to show the edges of the screen</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label52"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_os1">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable overscan to show the edges of the screen</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label52"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1103,13 +1175,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_os2">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable overscan to show the edges of the second screen</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label53"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_os2">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable overscan to show the edges of the second screen</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label53"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1143,13 +1227,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_blank">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Blank the screen after a period of inactivity</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label55"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_blank">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Blank the screen after a period of inactivity</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label55"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1333,13 +1429,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_ssh">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable remote access to this Pi via SSH</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label21"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_ssh">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable remote access to this Pi via SSH</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label21"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1373,13 +1481,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_vnc">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable remote access to this Pi using RealVNC</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label23"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_vnc">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable remote access to this Pi using RealVNC</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label23"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1413,13 +1533,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_spi">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable the automatic loading of the SPI kernel module</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label24"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_spi">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable the automatic loading of the SPI kernel module</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label24"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1453,13 +1585,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_i2c">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable the automatic loading of the I2C kernel module</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label25"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_i2c">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable the automatic loading of the I2C kernel module</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label25"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1493,13 +1637,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_ser">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable the serial port over the GPIO pins</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label26"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_ser">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable the serial port over the GPIO pins</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label26"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1533,13 +1689,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_serc">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable shell and kernel messages on the serial connection</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label27"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_serc">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable shell and kernel messages on the serial connection</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label27"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1573,13 +1741,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_one">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable 1-wire peripheral interface</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label28"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_one">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable 1-wire peripheral interface</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label28"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1720,13 +1900,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_fan">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Enable a temperature-controlled fan on a GPIO pin</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label34"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_fan">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Enable a temperature-controlled fan on a GPIO pin</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label34"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1842,13 +2034,25 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSwitch" id="sw_usb">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="tooltip-text" translatable="yes">Turn on to allow higher currents to USB peripherals</property>
-                        <accessibility>
-                          <relation type="labelled-by" target="label37"/>
-                        </accessibility>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkSwitch" id="sw_usb">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="tooltip-text" translatable="yes">Turn on to allow higher currents to USB peripherals</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="label37"/>
+                            </accessibility>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -2140,6 +2344,7 @@
       <widget name="hbox16"/>
       <widget name="hbox17"/>
       <widget name="hbox18"/>
+      <widget name="hbox19"/>
       <widget name="hbox52"/>
       <widget name="hbox53"/>
       <widget name="hbox55"/>
@@ -2865,13 +3070,13 @@
         </child>
         <child>
           <object class="GtkLabel" id="hnmsg">
+            <property name="width-request">300</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">It is recommended that all other applications are closed before changing the hostname.</property>
-            <property name="xalign">0</property>
-            <property name="width-request">300</property>
             <property name="wrap">True</property>
             <property name="max-width-chars">40</property>
+            <property name="xalign">0</property>
           </object>
           <packing>
             <property name="expand">True</property>
