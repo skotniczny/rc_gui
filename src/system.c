@@ -181,8 +181,14 @@ static void on_change_hostname (GtkButton* btn, gpointer ptr)
             {
                 vsystem (SET_HOSTNAME, new_hn);
                 gtk_widget_destroy (dlg);
-                info (_("The hostname has been changed successfully and will take effect on the next reboot."));
-                needs_reboot = TRUE;
+                g_free (orig_hn);
+                orig_hn = get_string (GET_HOSTNAME);
+                if (!g_strcmp0 (orig_hn, new_hn))
+                {
+                    info (_("The hostname has been changed successfully and will take effect on the next reboot."));
+                    needs_reboot = TRUE;
+                }
+                else info (_("The hostname change failed.\n\nThe hostname must only contain the characters A-Z, a-z, 0-9 and hyphen.\nThe first and last character may not be the hyphen."));
             }
             else
             {
