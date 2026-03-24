@@ -239,11 +239,11 @@ static void boot_update (void)
 
 static void on_boot_toggle (GtkButton *btn, gpointer ptr)
 {
-    boot_update ();
-    
 #ifdef REALTIME
     set_watch_cursor ();
     g_idle_add (process_boot, NULL);
+#else
+    boot_update ();
 #endif
 }
 
@@ -262,6 +262,12 @@ static void on_alogin_toggle (GtkSwitch *btn, gpointer, gpointer)
 static gboolean process_alogin (gpointer data)
 {
     config_autologin ();
+    g_signal_handlers_block_matched (alog_cli_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_alogin_toggle, NULL);
+    g_signal_handlers_block_matched (alog_desk_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_alogin_toggle, NULL);
+    gtk_switch_set_active (GTK_SWITCH (alog_cli_sw), !get_status (GET_ALOGIN_CLI));
+    gtk_switch_set_active (GTK_SWITCH (alog_desk_sw), !get_status (GET_ALOGIN_DESK));
+    g_signal_handlers_unblock_matched (alog_cli_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_alogin_toggle, NULL);
+    g_signal_handlers_unblock_matched (alog_desk_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_alogin_toggle, NULL);
     clear_watch_cursor ();
     return FALSE;
 }
@@ -285,6 +291,13 @@ static gboolean process_browser (gpointer data)
 static gboolean process_boot (gpointer data)
 {
     config_boot ();
+    g_signal_handlers_block_matched (boot_cli_rb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_boot_toggle, NULL);
+    if (get_status (GET_BOOT_CLI))
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (boot_desktop_rb), TRUE);
+    else
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (boot_cli_rb), TRUE);
+    g_signal_handlers_unblock_matched (boot_cli_rb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_boot_toggle, NULL);
+    boot_update ();
     clear_watch_cursor ();
     return FALSE;
 }
