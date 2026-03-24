@@ -34,7 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* Typedefs and macros                                                        */
 /*----------------------------------------------------------------------------*/
 
-#define GET_OVERCLOCK   GET_PREFIX "get_config_var arm_freq /boot/config.txt"
+#define GET_OVERCLOCK   GET_PREFIX "get_config_var arm_freq /boot/firmware/config.txt"
 #define SET_OVERCLOCK   SET_PREFIX "do_overclock %s"
 #define GET_FAN         GET_PREFIX "get_fan"
 #define GET_FAN_GPIO    GET_PREFIX "get_fan_gpio"
@@ -288,7 +288,43 @@ static void on_overclock_set (GtkComboBox* cb, gpointer ptr)
 
 static gboolean process_oc (gpointer data)
 {
+    int val, cbval;
+
     overclock_config ();
+
+    val = get_status (GET_OVERCLOCK);
+    cbval = 0;
+    switch (get_status (GET_PI_TYPE))
+    {
+        case 1 :    switch (val)
+                    {
+                        case 800  : cbval = 1;
+                                    break;
+                        case 900  : cbval = 2;
+                                    break;
+                        case 950  : cbval = 3;
+                                    break;
+                        case 1000 : cbval = 4;
+                                    break;
+                        default   : break;
+                    }
+                    break;
+
+        case 2 :    switch (val)
+                    {
+                        case 1000 : cbval = 1;
+                                    break;
+                        default   : break;
+                    }
+                    break;
+
+        default :   break;
+    }
+
+    g_signal_handlers_block_matched (overclock_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_overclock_set, NULL);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (overclock_cb), cbval);
+    g_signal_handlers_unblock_matched (overclock_cb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_overclock_set, NULL);
+
     clear_watch_cursor ();
     return FALSE;
 }
