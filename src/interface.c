@@ -64,6 +64,9 @@ static int orig_ssh, orig_vnc, orig_spi, orig_i2c, orig_serial, orig_scons, orig
 
 static void serial_update (void);
 static void on_serial_toggle (GtkSwitch *btn, gpointer, gpointer);
+#ifdef REALTIME
+static gboolean process_serial (gpointer data);
+#endif
 
 /*----------------------------------------------------------------------------*/
 /* Function definitions                                                       */
@@ -90,12 +93,28 @@ static void serial_update (void)
 
 static void on_serial_toggle (GtkSwitch *btn, gpointer, gpointer)
 {
-    serial_update ();
-
 #ifdef REALTIME
-    vsystem (SET_SERIALHW, (1 - gtk_switch_get_active (btn)));
+    set_watch_cursor ();
+    g_idle_add (process_serial, NULL);
+#else
+    serial_update ();
 #endif
 }
+
+#ifdef REALTIME
+static gboolean process_serial (gpointer data)
+{
+    vsystem (SET_SERIALHW, (1 - gtk_switch_get_active (GTK_SWITCH (serial_sw))));
+
+    g_signal_handlers_block_matched (serial_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_serial_toggle, NULL);
+    gtk_switch_set_active (GTK_SWITCH (serial_sw), !get_status (GET_SERIALHW));
+    g_signal_handlers_unblock_matched (serial_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_serial_toggle, NULL);
+
+    serial_update ();
+    clear_watch_cursor ();
+    return FALSE;
+}
+#endif
 
 /*----------------------------------------------------------------------------*/
 /* Exit processing                                                            */
