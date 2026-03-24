@@ -51,6 +51,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define SET_USBI        SET_PREFIX "do_usb_current %d"
 #define CHECK_UNAME     GET_PREFIX "is_uname_current"
 
+#define TIMEOUT_MS 500
+
 /*----------------------------------------------------------------------------*/
 /* Global data                                                                */
 /*----------------------------------------------------------------------------*/
@@ -58,6 +60,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 static GObject *overclock_cb, *fan_sw, *fan_gpio_sb, *fan_temp_sb, *usb_sw, *ofs_btn, *ofs_en_sw, *bp_ro_sw, *ofs_lbl;
 static int orig_clock, orig_fan, orig_fan_gpio, orig_fan_temp, orig_usbi, orig_ofs, orig_bpro;
 static int ovfs_rb;
+static int fv_time;
 
 /*----------------------------------------------------------------------------*/
 /* Prototypes                                                                 */
@@ -75,6 +78,7 @@ static void on_fan_toggle (GtkSwitch *btn, gpointer, gpointer);
 static void on_overclock_set (GtkComboBox* cb, gpointer ptr);
 static gboolean process_oc (gpointer data);
 static void on_fan_value_changed (GtkSpinButton *sb);
+static gboolean fv_handler (gpointer data);
 static gboolean process_fan (gpointer data);
 #endif
 
@@ -225,17 +229,17 @@ static gboolean process_fan (gpointer data)
     {
         vsystem (SET_FAN, 0, fan_gpio, fan_temp);
     }
-#ifdef REALTIME
 
+#ifdef REALTIME
     g_signal_handlers_block_matched (fan_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_toggle, NULL);
-    //g_signal_handlers_block_matched (fan_gpio_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
-    //g_signal_handlers_block_matched (fan_temp_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    g_signal_handlers_block_matched (fan_gpio_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    g_signal_handlers_block_matched (fan_temp_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
     gtk_switch_set_active (GTK_SWITCH (fan_sw), !get_status (GET_FAN));
-    //gtk_spin_button_set_value (GTK_SPIN_BUTTON (fan_gpio_sb), get_status (GET_FAN_GPIO));
-    //gtk_spin_button_set_value (GTK_SPIN_BUTTON (fan_temp_sb), get_status (GET_FAN_TEMP));
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (fan_gpio_sb), get_status (GET_FAN_GPIO));
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (fan_temp_sb), get_status (GET_FAN_TEMP));
     g_signal_handlers_unblock_matched (fan_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_toggle, NULL);
-    //g_signal_handlers_unblock_matched (fan_gpio_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
-    //g_signal_handlers_unblock_matched (fan_temp_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    g_signal_handlers_unblock_matched (fan_gpio_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
+    g_signal_handlers_unblock_matched (fan_temp_sb, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_fan_value_changed, NULL);
 
     fan_update ();
     clear_watch_cursor ();
@@ -291,7 +295,15 @@ static gboolean process_oc (gpointer data)
 
 static void on_fan_value_changed (GtkSpinButton *sb)
 {
+    if (fv_time) g_source_remove (fv_time);
+    fv_time = g_timeout_add (TIMEOUT_MS, fv_handler, NULL);
+}
+
+static gboolean fv_handler (gpointer data)
+{
     fan_config ();
+    fv_time = 0;
+    return FALSE;
 }
 
 #endif
