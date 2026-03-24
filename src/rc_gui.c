@@ -198,10 +198,10 @@ static gboolean process_switch (gpointer data)
     char *getcmd = strchr (setcmd, ';');
     *getcmd++ = 0;
     vsystem (setcmd);
-    g_free (setcmd);
     g_signal_handlers_block_matched (cswitch, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_switch, NULL);
     gtk_switch_set_active (GTK_SWITCH (cswitch), !get_status (getcmd));
     g_signal_handlers_unblock_matched (cswitch, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_switch, NULL);
+    g_free (setcmd);
     clear_watch_cursor ();
     return FALSE;
 }
