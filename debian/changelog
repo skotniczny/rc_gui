@@ -1,3 +1,9 @@
+rc-gui (2.14) trixie; urgency=medium
+
+  * Fix forced toggling of serial console on startup
+
+ -- Simon Long <simon@raspberrypi.com>  Tue, 31 Mar 2026 14:50:34 +0100
+
 rc-gui (2.13) trixie; urgency=medium
 
   * Read back all values after change so as to display correct values in the event of sudo failure

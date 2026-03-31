@@ -85,7 +85,6 @@ static void serial_update (void)
     }
     else
     {
-        gtk_switch_set_active (GTK_SWITCH (scons_sw), FALSE);
         gtk_widget_set_sensitive (GTK_WIDGET (scons_sw), FALSE);
         gtk_widget_set_tooltip_text (GTK_WIDGET (scons_sw), _("This setting cannot be changed while the serial port is disabled"));
     }
@@ -97,6 +96,7 @@ static void on_serial_toggle (GtkSwitch *btn, gpointer, gpointer)
     set_watch_cursor ();
     g_idle_add (process_serial, NULL);
 #else
+    if (!gtk_switch_get_active (GTK_SWITCH (serial_sw))) gtk_switch_set_active (GTK_SWITCH (scons_sw), FALSE);
     serial_update ();
 #endif
 }
@@ -110,6 +110,7 @@ static gboolean process_serial (gpointer data)
     gtk_switch_set_active (GTK_SWITCH (serial_sw), !get_status (GET_SERIALHW));
     g_signal_handlers_unblock_matched (serial_sw, G_SIGNAL_MATCH_FUNC, 0, 0, NULL, on_serial_toggle, NULL);
 
+    if (!gtk_switch_get_active (GTK_SWITCH (serial_sw))) gtk_switch_set_active (GTK_SWITCH (scons_sw), FALSE);
     serial_update ();
     clear_watch_cursor ();
     return FALSE;
