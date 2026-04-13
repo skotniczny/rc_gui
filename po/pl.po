@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: rc_gui 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 23:31+0200\n"
-"PO-Revision-Date: 2021-07-19 15:19+0200\n"
-"Last-Translator: GITNE <GITNE@users.noreply.github.com>\n"
+"PO-Revision-Date: 2026-04-13 17:37+0200\n"
+"Last-Translator: Skotniczny <skotniczny@outlook.com>\n"
 "Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -19,38 +19,33 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: ../src/rc_gui.c:326
-#, fuzzy
 msgctxt "tab"
 msgid "System"
 msgstr "System"
 
 #: ../src/rc_gui.c:327
-#, fuzzy
 msgctxt "tab"
 msgid "Display"
-msgstr "Wyświetlacz"
+msgstr "Ekran"
 
 #: ../src/rc_gui.c:328
-#, fuzzy
 msgctxt "tab"
 msgid "Interfaces"
-msgstr "Interfejs"
+msgstr "Interfejsy"
 
 #: ../src/rc_gui.c:329
-#, fuzzy
 msgctxt "tab"
 msgid "Performance"
 msgstr "Wydajność"
 
 #: ../src/rc_gui.c:330
-#, fuzzy
 msgctxt "tab"
 msgid "Localisation"
 msgstr "Lokalizacja"
 
 #: ../src/rc_gui.c:331
 msgid "No such tab"
-msgstr ""
+msgstr "Nie ma takiej zakładki"
 
 #: ../src/rc_gui.c:421
 msgid ""
@@ -62,39 +57,35 @@ msgstr ""
 "Aby dokonane zmiany zadziałały potrzebne jest ponowne uruchomienie Raspberry "
 "Pi.\n"
 "\n"
-"Czy chcesz teraz uruchomić system ponownie?"
+"Czy chcesz teraz uruchomić system ponownie? "
 
 #: ../src/rc_gui.c:424
 msgid "_No"
-msgstr ""
+msgstr "_Nie"
 
 #: ../src/rc_gui.c:429
 msgid "_Yes"
-msgstr ""
+msgstr "_Tak"
 
 #: ../src/rc_gui.c:463
-#, fuzzy
 msgid "Updating configuration - please wait..."
-msgstr "Ustawianie strefy czasowej — proszę czekać…"
+msgstr "Aktualizowanie konfiguracji — proszę czekać…"
 
 #: ../src/rc_gui.c:564
-#, fuzzy
 msgid "Loading configuration - please wait..."
-msgstr "Ustawianie strefy czasowej — proszę czekać…"
+msgstr "Ładowanie konfiguracji — proszę czekać…"
 
 #: ../src/display.c:269
 msgid "This setting is overridden when Xscreensaver is installed"
-msgstr "Te ustawienie jest uchylane gdy Xscreensaver jest zainstalowany"
+msgstr "To ustawienie jest ignorowane gdy Xscreensaver jest zainstalowany"
 
 #: ../src/display.c:282
-#, fuzzy
 msgid "Overscan (HDMI-1):"
-msgstr "Margines:"
+msgstr ""
 
 #: ../src/display.c:332 ../src/display.c:334
-#, fuzzy
 msgid "A virtual keyboard is not installed"
-msgstr "Serwer VNC nie jest zainstalowany"
+msgstr "Klawiatura ekranowa nie jest zainstalowana"
 
 #: ../src/interface.c:84 ../data/rc_gui.ui.h:79
 msgid "Enable shell and kernel messages on the serial connection"
@@ -111,7 +102,7 @@ msgstr "Serwer VNC nie jest zainstalowany"
 #. warn about a short delay...
 #: ../src/local.c:303
 msgid "Setting locale - please wait..."
-msgstr "Ustawianie regionalnych — proszę czekać…"
+msgstr "Ustawianie lokalizacji — proszę czekać…"
 
 #. warn about a short delay...
 #: ../src/local.c:599
@@ -125,7 +116,7 @@ msgstr "Ustawianie klawiatury — proszę czekać…"
 
 #: ../src/local.c:1029 ../src/local.c:1113
 msgid "None"
-msgstr ""
+msgstr "Brak"
 
 #: ../src/local.c:1035
 msgid "Ctrl + Alt"
@@ -137,43 +128,43 @@ msgstr ""
 
 #: ../src/local.c:1041
 msgid "Left Alt"
-msgstr ""
+msgstr "Lewy Alt"
 
 #: ../src/local.c:1044
 msgid "Left Alt + Caps"
-msgstr ""
+msgstr "Lewy Alt + Caps Lock"
 
 #: ../src/local.c:1047
 msgid "Left Alt + Left Shift"
-msgstr ""
+msgstr "Lewy Alt + Lewy Shift"
 
 #: ../src/local.c:1053
 msgid "Left Alt + Shift"
-msgstr ""
+msgstr "Lewy Alt + Shift"
 
 #: ../src/local.c:1056
 msgid "Left Ctrl"
-msgstr ""
+msgstr "Lewy Ctrl"
 
 #: ../src/local.c:1059
 msgid "Left Ctrl + Left Alt"
-msgstr ""
+msgstr "Lewy Ctrl + Lewy Alt"
 
 #: ../src/local.c:1062
 msgid "Left Ctrl + Left Shift"
-msgstr ""
+msgstr "Lewy Ctrl + Lewy Shift"
 
 #: ../src/local.c:1068
 msgid "Left Ctrl + Right Ctrl"
-msgstr ""
+msgstr "Lewy Ctrl + Prawy Ctrl"
 
 #: ../src/local.c:1071
 msgid "Left Shift"
-msgstr ""
+msgstr "Lewy Shift"
 
 #: ../src/local.c:1074
 msgid "Left Shift + Right Shift"
-msgstr ""
+msgstr "Lewy Shift + Prawy Shift"
 
 #: ../src/local.c:1080
 msgid "Menu"
@@ -181,23 +172,23 @@ msgstr ""
 
 #: ../src/local.c:1083
 msgid "Right Alt"
-msgstr ""
+msgstr "Prawy Alt"
 
 #: ../src/local.c:1089
 msgid "Right Ctrl"
-msgstr ""
+msgstr "Prawy Ctrl"
 
 #: ../src/local.c:1092
 msgid "Right Ctrl + Right Alt"
-msgstr ""
+msgstr "Prawy Ctrl + Prawy Alt"
 
 #: ../src/local.c:1095
 msgid "Right Ctrl + Right Shift"
-msgstr ""
+msgstr "Prawy Ctrl + Prawy Shift"
 
 #: ../src/local.c:1098
 msgid "Right Shift"
-msgstr ""
+msgstr "Prawy Shift"
 
 #: ../src/local.c:1104
 msgid "Scroll Lock"
@@ -205,19 +196,19 @@ msgstr ""
 
 #: ../src/local.c:1107
 msgid "Shift + Caps"
-msgstr ""
+msgstr "Shift + Caps Lock"
 
 #: ../src/local.c:1116
 msgid "Caps"
-msgstr ""
+msgstr "Caps Lock"
 
 #: ../src/local.c:1119
 msgid "Num"
-msgstr ""
+msgstr "Num Lock"
 
 #: ../src/local.c:1122
 msgid "Scroll"
-msgstr ""
+msgstr "Scroll Lock"
 
 #: ../src/local.c:1227 ../src/local.c:1250
 msgid "<not set>"
@@ -229,7 +220,7 @@ msgid ""
 "have loaded before setting up the overlay file system."
 msgstr ""
 "System niedawno zaktualizowano. Zanim ustawisz pokrywczy system plików, "
-"proszę uruchom system ponownie aby zapewnić załadowanie aktualizacji."
+"uruchom system ponownie aby zapewnić załadowanie aktualizacji."
 
 #: ../src/perform.c:124
 msgid ""
@@ -248,13 +239,11 @@ msgstr "Ustaw styk GPIO do którego jest podłączony wentylator"
 
 #: ../src/perform.c:257 ../data/rc_gui.ui.h:93
 msgid "Set the temperature in degrees C at which the fan turns on"
-msgstr ""
-"Ustaw temperaturę w stopniach Celcjusza od której włącza się wentylator"
+msgstr "Ustaw temperaturę w stopniach Celsjusza, przy której włącza się wentylator"
 
 #: ../src/perform.c:263 ../src/perform.c:264
-#, fuzzy
 msgid "This setting cannot be changed unless the fan is enabled"
-msgstr "Nie możesz tego ustawić gdy gniazdo szeregowe jest wyłączone"
+msgstr "To ustawienie nie może być zmienione gdy wentylator jest wyłączony"
 
 #: ../src/perform.c:436
 msgid "None (700MHz)"
@@ -294,9 +283,9 @@ msgid ""
 msgstr ""
 "Zmiana hasła się nie powiodła.\n"
 "\n"
-"Przyczyną tego mogła być nie zgodność z aktualnym hasłem, za bliskie "
-"podobieństwo do aktualnego hasła lub brak wystarczająco kompleksyjnej "
-"wysokiej złożoności hasła."
+"Przyczyną tego mogła być niezgodność z aktualnym hasłem, zbyt duże "
+"podobieństwo do aktualnego hasła lub brak wystarczająco wysokiej "
+"złożoności hasła."
 
 #: ../src/system.c:126
 msgid "The password has been changed successfully."
@@ -307,6 +296,8 @@ msgid ""
 "The hostname has been changed successfully and will take effect on the next "
 "reboot."
 msgstr ""
+"Nazwa hosta została pomyślnie zmieniona i zostanie zastosowana po ponownym "
+"uruchomieniu."
 
 #: ../src/system.c:192 ../src/system.c:197
 msgid ""
@@ -315,15 +306,18 @@ msgid ""
 "The hostname must only contain the characters A-Z, a-z, 0-9 and hyphen.\n"
 "The first and last character may not be the hyphen."
 msgstr ""
+"Zmiana nazwy hosta się nie powiodła.\n"
+"\n"
+"Nazwa hosta może zawierać wyłącznie znaki A-Z, a-z, 0-9 i myślnik.\n"
+"Pierwszy i ostatni znak nie może być myślnikiem."
 
 #: ../src/system.c:382
 msgid "Splash screen cannot be configured on a live image"
-msgstr ""
+msgstr "Ekranu powitalnego nie można skonfigurować na obrazie live"
 
 #: ../src/system.c:416 ../src/system.c:417
-#, fuzzy
 msgid "Multiple browsers are not installed"
-msgstr "Serwer VNC nie jest zainstalowany"
+msgstr "Nie wszystkie obsługiwane przeglądarki są zainstalowane"
 
 #. End of file
 #. ----------------------------------------------------------------------------
@@ -333,7 +327,7 @@ msgstr "Klawiatura"
 
 #: ../data/rc_gui.ui.h:2
 msgid "_Cancel"
-msgstr ""
+msgstr "_Anuluj"
 
 #: ../data/rc_gui.ui.h:3
 msgid "_OK"
@@ -345,16 +339,15 @@ msgstr "Model:"
 
 #: ../data/rc_gui.ui.h:5
 msgid "Select the keyboard model"
-msgstr ""
+msgstr "Wybierz model klawiatury"
 
 #: ../data/rc_gui.ui.h:6
 msgid "Layout:"
 msgstr "Układ:"
 
 #: ../data/rc_gui.ui.h:7
-#, fuzzy
 msgid "Select the keyboard layout"
-msgstr "Ustaw międzynarodowe opcje klawiaturowe"
+msgstr "Wybierz układ klawiatury"
 
 #: ../data/rc_gui.ui.h:8
 msgid "Variant:"
@@ -362,52 +355,51 @@ msgstr "Wariant:"
 
 #: ../data/rc_gui.ui.h:9
 msgid "Select the keyboard variant"
-msgstr ""
+msgstr "Wybierz wariant klawiatury"
 
 #: ../data/rc_gui.ui.h:10
 msgid "Add alternate keyboard"
-msgstr ""
+msgstr "Dodaj alternatywny układ klawiatury"
 
 #: ../data/rc_gui.ui.h:11
 msgid ""
 "Enable a second keyboard layout which can be switched with a key combination"
 msgstr ""
+"Włącz drugi układ klawiatury, który można przełączać kombinacją klawiszy"
 
 #: ../data/rc_gui.ui.h:12
 msgid "Alternate Layout:"
-msgstr ""
+msgstr "Alternatywny układ:"
 
 #: ../data/rc_gui.ui.h:13
-#, fuzzy
 msgid "Select the alternate keyboard layout"
-msgstr "Ustaw międzynarodowe opcje klawiaturowe"
+msgstr "Wybierz alternatywny układ klawiatury"
 
 #: ../data/rc_gui.ui.h:14
-#, fuzzy
 msgid "Alternate Variant:"
-msgstr "Wariant:"
+msgstr "Alternatywny wariant:"
 
 #: ../data/rc_gui.ui.h:15
-#, fuzzy
 msgid "Select the alternate keyboard variant"
-msgstr "Ustaw międzynarodowe opcje klawiaturowe"
+msgstr "Wybierz alternatywny wariant klawiatury"
 
 #: ../data/rc_gui.ui.h:16
 msgid "Toggle Key:"
-msgstr ""
+msgstr "Klawisz przełączania:"
 
 #: ../data/rc_gui.ui.h:17
 msgid "Select the key combination to switch between keyboard layouts"
-msgstr ""
+msgstr "Wybierz kombinację klawiszy do przełączania układów klawiatury"
 
 #: ../data/rc_gui.ui.h:18
 msgid "Indicator:"
-msgstr ""
+msgstr "Wskaźnik:"
 
 #: ../data/rc_gui.ui.h:19
 msgid ""
 "Select the indicator shown while the alternate keyboard layout is in effect"
 msgstr ""
+"Wybierz wskaźnik wyświetlany gdy aktywny jest alternatywny układ klawiatury"
 
 #: ../data/rc_gui.ui.h:20
 msgid "Locale"
@@ -446,9 +438,8 @@ msgid "Hostname:"
 msgstr "Nazwa hosta:"
 
 #: ../data/rc_gui.ui.h:29
-#, fuzzy
 msgid "Change _Hostname..."
-msgstr "Zmień _hasło…"
+msgstr "Zmień _nazwę hosta…"
 
 #: ../data/rc_gui.ui.h:30
 msgid "Set the name of your Pi on a local network"
@@ -464,7 +455,7 @@ msgstr "do pulpitu"
 
 #: ../data/rc_gui.ui.h:33
 msgid "Launch the desktop environment automatically on boot"
-msgstr "Automatycznie uruchamiaj środowisko pulpitu podczas rozruchu"
+msgstr "Automatycznie uruchamia środowisko pulpitu podczas rozruchu"
 
 #: ../data/rc_gui.ui.h:34
 msgid "To CLI"
@@ -472,27 +463,23 @@ msgstr "do interfejsu wiersza poleceń"
 
 #: ../data/rc_gui.ui.h:35
 msgid "Boot into a command line shell rather than the desktop"
-msgstr "Rozrusza do powłoki systemowej wierszy poleceń zamiast do pulpitu"
+msgstr "Uruchamia system do powłoki systemowej zamiast do pulpitu"
 
 #: ../data/rc_gui.ui.h:36
-#, fuzzy
 msgid "Console auto login:"
-msgstr "Automatyczne logowanie:"
+msgstr "Automatyczne logowanie do konsoli:"
 
 #: ../data/rc_gui.ui.h:37
-#, fuzzy
 msgid "Automatically log in the current user at the console"
-msgstr "Automatycznie loguj domyślnego użytkownika „pi”"
+msgstr "Automatycznie zaloguj bieżącego użytkownika do konsoli"
 
 #: ../data/rc_gui.ui.h:38
-#, fuzzy
 msgid "Desktop auto login:"
-msgstr "Automatyczne logowanie:"
+msgstr "Automatyczne logowanie do pulpitu:"
 
 #: ../data/rc_gui.ui.h:39
-#, fuzzy
 msgid "Automatically log in the current user to the desktop"
-msgstr "Automatycznie loguj domyślnego użytkownika „pi”"
+msgstr "Automatycznie zaloguj bieżącego użytkownika do pulpitu"
 
 #: ../data/rc_gui.ui.h:40
 msgid "Splash Screen:"
@@ -512,7 +499,7 @@ msgstr "Mrugaj kontrolką zasilania przy sięganiu do pamięci stałej"
 
 #: ../data/rc_gui.ui.h:44
 msgid "Browser:"
-msgstr ""
+msgstr "Przeglądarka:"
 
 #: ../data/rc_gui.ui.h:45
 msgid "Chromium"
@@ -520,7 +507,7 @@ msgstr ""
 
 #: ../data/rc_gui.ui.h:46
 msgid "Select Chromium as the default browser"
-msgstr ""
+msgstr "Ustaw Chromium jako domyślną przeglądarkę"
 
 #: ../data/rc_gui.ui.h:47
 msgid "Firefox"
@@ -528,16 +515,15 @@ msgstr ""
 
 #: ../data/rc_gui.ui.h:48
 msgid "Select Firefox as the default browser"
-msgstr ""
+msgstr "Ustaw Firefox jako domyślną przeglądarkę"
 
 #: ../data/rc_gui.ui.h:49
-#, fuzzy
 msgid "Admin Password:"
-msgstr "Hasło:"
+msgstr "Hasło administratora:"
 
 #: ../data/rc_gui.ui.h:50
 msgid "Prompt for the user password before admin (\"sudo\") operations"
-msgstr ""
+msgstr "Pytaj o hasło użytkownika przed operacjami administratora (\"sudo\")"
 
 #: ../data/rc_gui.ui.h:51
 msgid "System"
@@ -545,21 +531,19 @@ msgstr "System"
 
 #: ../data/rc_gui.ui.h:52
 msgid "Overscan:"
-msgstr "Margines:"
+msgstr ""
 
 #: ../data/rc_gui.ui.h:53
 msgid "Enable overscan to show the edges of the screen"
-msgstr "Włącz wyświetlanie marginesu ekranu"
+msgstr "Włącz overscan, aby pokazać krawędzie ekranu"
 
 #: ../data/rc_gui.ui.h:54
-#, fuzzy
 msgid "Overscan (HDMI-2):"
-msgstr "Margines:"
+msgstr ""
 
 #: ../data/rc_gui.ui.h:55
-#, fuzzy
 msgid "Enable overscan to show the edges of the second screen"
-msgstr "Włącz wyświetlanie marginesu ekranu"
+msgstr "Włącz overscan, aby pokazać krawędzie drugiego ekranu"
 
 #: ../data/rc_gui.ui.h:56
 msgid "Screen Blanking:"
@@ -570,48 +554,44 @@ msgid "Blank the screen after a period of inactivity"
 msgstr "Wygaszaj ekran po upływie okresu bez aktywności"
 
 #: ../data/rc_gui.ui.h:58
-#, fuzzy
 msgid "Headless Resolution:"
-msgstr "Rozdzielczość:"
+msgstr "Rozdzielczość bez monitora:"
 
 #: ../data/rc_gui.ui.h:59
 msgid "Set the resolution for VNC when no monitor is connected"
-msgstr ""
+msgstr "Ustaw rozdzielczość VNC, gdy nie podłączono monitora"
 
 #: ../data/rc_gui.ui.h:60
-#, fuzzy
 msgid "On-screen Keyboard:"
-msgstr "Klawiatura:"
+msgstr "Klawiatura ekranowa:"
 
 #: ../data/rc_gui.ui.h:61
-#, fuzzy
 msgid "Set virtual keyboard for use with touchscreens"
-msgstr "Ustaw międzynarodowe opcje klawiaturowe"
+msgstr "Ustaw klawiaturę wirtualną dla ekranów dotykowych"
 
 #: ../data/rc_gui.ui.h:62
-#, fuzzy
 msgid "Enabled always"
-msgstr "włączone"
+msgstr "Zawsze włączona"
 
 #: ../data/rc_gui.ui.h:63
 msgid "Enabled if touchscreen found"
-msgstr ""
+msgstr "Włączona gdy wykryto ekran dotykowy"
 
 #: ../data/rc_gui.ui.h:64
 msgid "Disabled"
-msgstr "wyłączone"
+msgstr "Wyłączona"
 
 #: ../data/rc_gui.ui.h:65
 msgid "On-Screen Keyboard Location:"
-msgstr ""
+msgstr "Wyświetlacz klawiatury ekranowej:"
 
 #: ../data/rc_gui.ui.h:66
 msgid "Set display to use for on-screen keyboard"
-msgstr ""
+msgstr "Ustaw wyświetlacz dla klawiatury ekranowej"
 
 #: ../data/rc_gui.ui.h:67
 msgid "Display"
-msgstr "Wyświetlacz"
+msgstr "Ekran"
 
 #: ../data/rc_gui.ui.h:68
 msgid "SSH:"
@@ -699,7 +679,7 @@ msgstr "Wentylator:"
 
 #: ../data/rc_gui.ui.h:89
 msgid "Enable a temperature-controlled fan on a GPIO pin"
-msgstr "Włącz sterowanie wentylatora temperaturą przez styk GPIO"
+msgstr "Włącz sterowanie wentylatorem przez GPIO w zależności od temperatury"
 
 #: ../data/rc_gui.ui.h:90
 msgid "Fan GPIO:"
@@ -707,15 +687,15 @@ msgstr "GPIO wentylatora:"
 
 #: ../data/rc_gui.ui.h:92
 msgid "Fan Temperature:"
-msgstr "Temperatura wentylatora:"
+msgstr "Temperatura uruchomienia wentylatora:"
 
 #: ../data/rc_gui.ui.h:94
 msgid "Disable USB Current Limit:"
-msgstr ""
+msgstr "Wyłącz limit natężenia prądu USB:"
 
 #: ../data/rc_gui.ui.h:95
 msgid "Turn on to allow higher currents to USB peripherals"
-msgstr ""
+msgstr "Włącz, aby zezwolić na wyższe natężenie prądu dla urządzeń USB"
 
 #: ../data/rc_gui.ui.h:96
 msgid "Performance"
@@ -731,7 +711,7 @@ msgstr "Ustaw opcje regiona_lne…"
 
 #: ../data/rc_gui.ui.h:99
 msgid "Set internationalisation settings for units etc."
-msgstr "Ustaw jednostki itp. rzeczy opcji regionalnych"
+msgstr "Ustaw opcje regionalne dla jednostek itp."
 
 #: ../data/rc_gui.ui.h:100
 msgid "Timezone:"
@@ -743,7 +723,7 @@ msgstr "Ustaw s_trefę czasową…"
 
 #: ../data/rc_gui.ui.h:102
 msgid "Set the timezone to be used by the internal clock"
-msgstr "Ustaw strefę czasową zegara wewnętrznego"
+msgstr "Ustaw strefę czasową zegara systemowego"
 
 #: ../data/rc_gui.ui.h:103
 msgid "Keyboard:"
@@ -824,20 +804,19 @@ msgid "Location:"
 msgstr "Położenie:"
 
 #: ../data/rc_gui.ui.h:122
-#, fuzzy
 msgid "Change Hostname"
-msgstr "Nazwa hosta:"
+msgstr "Zmiana nazwy hosta"
 
 #: ../data/rc_gui.ui.h:123
-#, fuzzy
 msgid "Enter new hostname:"
-msgstr "Wprowadź nowe hasło:"
+msgstr "Wprowadź nową nazwę hosta:"
 
 #: ../data/rc_gui.ui.h:124
 msgid ""
 "It is recommended that all other applications are closed before changing the "
 "hostname."
 msgstr ""
+"Zaleca się zamknięcie wszystkich pozostałych aplikacji przed zmianą nazwy hosta."
 
 #: ../data/rc_gui.ui.h:125
 msgid "WiFi Country Code"
